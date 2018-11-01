@@ -1,0 +1,57 @@
+四步学习法：
+
+1.定义和概念?
+2.要解决什么问题?
+3.优缺点?
+4.应用场景和注意事项?
+
+
+
+讲解一个知识点,首先要告诉听者你要讲什么,
+现在以CSS渐变为例.
+
+1.什么是css渐变? css渐变的实际用法?
+	background: linear-gradient(to bottom, #000000 0%,#ffffff 100%);
+
+	各个参数的意义分别是什么
+	
+	/* webkit 实际用法... */
+	-webkit-gradient(<type>, <point> [, <radius>]?, <point> [, <radius>]? [, <stop>]*)
+
+	background: -webkit-gradient(linear, 0 0, 0 100%, from(red), to(blue));
+	渐变的类型? (linear)
+	渐变开始的X Y 轴坐标(0 0 – 或者left-top)
+	渐变结束的X Y 轴坐标(0 100% 或者left-bottom)
+	开始的颜色? (from(red))
+	结束的颜色? (to(blue))
+
+
+	
+	/* Mozilla 实际用法*/
+	-moz-linear-gradient( [<point> || <angle>,]? <stop>, <stop> [, <stop>]* )
+	background: -moz-linear-gradient(top, red, blue);
+	请注意我们将渐变的类型——linear——放到了属性前缀中了
+	渐变从哪里开始? (top – 我们也可以使用度数，比如-45deg)
+	开始的颜色? (red)
+	结束的颜色? (blue)
+
+
+2.为什么要用css渐变? 
+	比如贵州大数据的文字标题,如果用图片代替需要很多背景图片的素材,
+	网页读取大量图片素材会增加通信次数.影响效率
+
+3.CSS渐变的优缺点
+	优点:配色灵活,不需要导入素材.只需要修改一部分颜色代码就可以改变渐变颜色或者大小
+	缺点:代码稍多
+
+4.应用场景和注意事项
+	场景:所有需要过渡色的场景
+	注意:各个浏览器兼容问题,IE9以下不支持.
+
+	background: -moz-linear-gradient(top, #000000 0%, #ffffff 100%); 
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#000000), color-stop(100%,#ffffff));
+	background: -webkit-linear-gradient(top, #000000 0%,#ffffff 100%);
+	background: -o-linear-gradient(top, #000000 0%,#ffffff 100%);
+	background: -ms-linear-gradient(top, #000000 0%,#ffffff 100%);
+	background: linear-gradient(to bottom, #000000 0%,#ffffff 100%);
+
